@@ -21,3 +21,6 @@ backend:
 
 
         server.js : File in which express application is defined and middleware functions are defined
+        
+        
+        Ecell.sol : Solidity smart contract implementation for the token protocol in Truffle Folder
