@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <div class="container">
+                <div>
+                    <a href=' /dashboard' class='nav-brand text-dark'>Dashboard</a>
+                    <span style="display: inline-block;width: 240px;"></span>
+                    <a href=' /history' class='nav-brand text-dark'>Transaction History</a>
+                    <span style="display: inline-block;width: 240px;"></span>
+                    <a href=' /logout' class='nav-brand text-dark'>Logout</a>
+                </div>
+            </div>
+        </nav>
+   </header>
+    <div id="account-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-3">
+                    <div class="deposit status">
+                        <h5>Name</h5>
+                        <h2><span id="current-deposit"><%=user_info.name%></span></h2>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-3">
+                    <div class="withdraw status">
+                        <h5>Email</h5>
+                        <h2><span id="current-email"><%=user_info.email%></span></h2>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-3">
+                    <div class="balance status">
+                        <h5>Balance</h5>
+                        <h2><span id="current-balance"><%=user_info.balance%></span></h2>
+                    </div>
+                 </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="submit-area">
+                        <h4>Deposit Amount</h4>
+                        <input id="deposit-amount" type="text" class="form-control" placeholder="Enter deposit amount" autocomplete="off"><br>
+                        <button id="deposit-btn" class="btn btn-success" onclick="metamask_deposit()">Deposit</button>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="submit-area">
+                        <h4>Withdraw Amount</h4>
+                        <input id="withdraw-amount" type="text" class="form-control" placeholder="Enter withdraw amount" autocomplete="off"><br>
+                        <input id="withdraw-address" type="text" class="form-control" placeholder="Enter blockchain address" autocomplete="off"><br>
+                        <button id="withdraw-btn" class="btn btn-success" onclick="call_withdraw()">Withdraw</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="submit-area">
+                    <h4>Request Tokens</h4>
+                    <input id="request-amount" type="text" class="form-control" placeholder="Enter requested amount" autocomplete="off"><br>
+                    <input id="request-address" type="text" class="form-control" placeholder="Enter blockchain address" autocomplete="off"><br>
+                    <button id="request-btn" class="btn btn-success" onclick="call_request()">Request</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.25.0/axios.min.js" integrity="sha512-/Q6t3CASm04EliI1QyIDAA/nDo9R8FQ/BULoUFyN4n/BDdyIxeH7u++Z+eobdmr11gG5D/6nPFyDlnisDwhpYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.0/web3.min.js" integrity="sha512-C63V0mFzwl8KV2fRz0QJNKX0d9877urOLSUq5WUq8nUOhDl69hKdGr9mAvl57k47GNjqEMAtiufsvDnk7xs8+w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        let user_info = `<%= user_info.email%>`;
+    </script>
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>
